@@ -8,3 +8,9 @@ Dove::Dove()
 Dove::~Dove()
 {
 }
+
+void Dove::Playsound()
+{
+	Animal::PlaySound();
+	Print("Dove::PlaySound() 함수호출");
+}

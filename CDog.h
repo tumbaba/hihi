@@ -11,7 +11,7 @@ private:
 public:
 	CDog();
 	~CDog();
-	
+	void Playsound();
 	
 };
 

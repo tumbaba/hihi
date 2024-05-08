@@ -4,5 +4,7 @@ class Dove : public Animal
 {public:
 	Dove();
 	~Dove();
+
+	void Playsound();
 };
 

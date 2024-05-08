@@ -60,4 +60,5 @@ Animal::~Animal()
 void Animal::PlaySound()
 {
 	cout << sound << endl;
+	Print("Animal::PlaySound() 함수호출");
 }
