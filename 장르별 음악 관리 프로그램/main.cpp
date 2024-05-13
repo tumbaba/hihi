@@ -3,7 +3,7 @@
 #include "Music.h"
 int main()
 {
-	//ÃÊ±âÈ­
+	//ì´ˆê¸°í™”
 	UI Ui;
 	Music fmusic;
 	
@@ -22,90 +22,90 @@ int main()
 	
 	
 	
-	music[0][0][0].init("¹ß¶óµå", "¾ÆÀÌÀ¯", "³»¼ÕÀ» Àâ¾Æ", "1");
-	music[0][0][1].init("¹ß¶óµå", "¾ÆÀÌÀ¯", "º½ »ç¶û º¢²É ¸»°í", "1");
-	music[0][0][2].init("¹ß¶óµå", "¾ÆÀÌÀ¯", "±Ý¿äÀÏ¿¡ ¸¸³ª¿ä", "1");
-	music[0][0][3].init("¹ß¶óµå", "¾ÆÀÌÀ¯", "³ÊÀÇ ÀÇ¹Ì", "1");
-	music[0][1][0].init("¹ß¶óµå", "SG ¿ö³Êºñ", "timeless", "1");
-	music[0][1][1].init("¹ß¶óµå", "SG ¿ö³Êºñ", "¶ó¶ó¶ó", "1");
-	music[0][1][2].init("¹ß¶óµå", "SG ¿ö³Êºñ", "»ì´Ù°¡", "1");
-	music[0][1][3].init("¹ß¶óµå", "SG ¿ö³Êºñ", "ÁË¿Í¹ú", "1");
-	music[0][2][0].init("¹ß¶óµå", "¼º½Ã°æ", "ÈñÀç", "1");
-	music[0][2][1].init("¹ß¶óµå", "¼º½Ã°æ", "°Å¸®¿¡¼­", "1");
-	music[0][2][2].init("¹ß¶óµå", "¼º½Ã°æ", "³»°Ô ¿À´Â ±æ", "1");
-	music[0][2][3].init("¹ß¶óµå", "¼º½Ã°æ", "³ÊÀÇ ¸ðµç¼ø°£", "1");
-	music[0][3][0].init("¹ß¶óµå", "±ÔÇö", "±¤È­¹®¿¡¼­", "1");
-	music[0][4][0].init("¹ß¶óµå", "¾¾¾ß", "»ç¶ûÀÇ ÀÎ»ç", "1");
-	music[0][5][0].init("¹ß¶óµå", "ÇÏµ¿±Õ", "±×³à¸¦ »ç¶ûÇØÁà¿ä", "1");
-	music[0][6][0].init("¹ß¶óµå", "Á¤ÀºÁö", "All For You", "1");
-	music[0][7][0].init("¹ß¶óµå", "¸°", "»ç¶ûÇßÀÝ¾Æ", "1");
-	music[0][8][0].init("¹ß¶óµå", "À±ÇÏ", "±â´Ù¸®´Ù", "1");
-	music[0][9][0].init("¹ß¶óµå", "ÀÌÀû", "°ÆÁ¤¸»¾Æ¿ä ±×´ë", "1");
-	music[0][10][0].init("¹ß¶óµå", "±èµ¿·ü", "´Ù½Ã »ç¶ûÇÑ´Ù ¸»ÇÒ±î", "1");
-	music[0][11][0].init("¹ß¶óµå", "¿ÀÇõ", "¼Ò³à", "1");
+	music[0][0][0].init("ë°œë¼ë“œ", "ì•„ì´ìœ ", "ë‚´ì†ì„ ìž¡ì•„", "1");
+	music[0][0][1].init("ë°œë¼ë“œ", "ì•„ì´ìœ ", "ë´„ ì‚¬ëž‘ ë²šê½ƒ ë§ê³ ", "1");
+	music[0][0][2].init("ë°œë¼ë“œ", "ì•„ì´ìœ ", "ê¸ˆìš”ì¼ì— ë§Œë‚˜ìš”", "1");
+	music[0][0][3].init("ë°œë¼ë“œ", "ì•„ì´ìœ ", "ë„ˆì˜ ì˜ë¯¸", "1");
+	music[0][1][0].init("ë°œë¼ë“œ", "SG ì›Œë„ˆë¹„", "timeless", "1");
+	music[0][1][1].init("ë°œë¼ë“œ", "SG ì›Œë„ˆë¹„", "ë¼ë¼ë¼", "1");
+	music[0][1][2].init("ë°œë¼ë“œ", "SG ì›Œë„ˆë¹„", "ì‚´ë‹¤ê°€", "1");
+	music[0][1][3].init("ë°œë¼ë“œ", "SG ì›Œë„ˆë¹„", "ì£„ì™€ë²Œ", "1");
+	music[0][2][0].init("ë°œë¼ë“œ", "ì„±ì‹œê²½", "í¬ìž¬", "1");
+	music[0][2][1].init("ë°œë¼ë“œ", "ì„±ì‹œê²½", "ê±°ë¦¬ì—ì„œ", "1");
+	music[0][2][2].init("ë°œë¼ë“œ", "ì„±ì‹œê²½", "ë‚´ê²Œ ì˜¤ëŠ” ê¸¸", "1");
+	music[0][2][3].init("ë°œë¼ë“œ", "ì„±ì‹œê²½", "ë„ˆì˜ ëª¨ë“ ìˆœê°„", "1");
+	music[0][3][0].init("ë°œë¼ë“œ", "ê·œí˜„", "ê´‘í™”ë¬¸ì—ì„œ", "1");
+	music[0][4][0].init("ë°œë¼ë“œ", "ì”¨ì•¼", "ì‚¬ëž‘ì˜ ì¸ì‚¬", "1");
+	music[0][5][0].init("ë°œë¼ë“œ", "í•˜ë™ê· ", "ê·¸ë…€ë¥¼ ì‚¬ëž‘í•´ì¤˜ìš”", "1");
+	music[0][6][0].init("ë°œë¼ë“œ", "ì •ì€ì§€", "All For You", "1");
+	music[0][7][0].init("ë°œë¼ë“œ", "ë¦°", "ì‚¬ëž‘í–ˆìž–ì•„", "1");
+	music[0][8][0].init("ë°œë¼ë“œ", "ìœ¤í•˜", "ê¸°ë‹¤ë¦¬ë‹¤", "1");
+	music[0][9][0].init("ë°œë¼ë“œ", "ì´ì ", "ê±±ì •ë§ì•„ìš” ê·¸ëŒ€", "1");
+	music[0][10][0].init("ë°œë¼ë“œ", "ê¹€ë™ë¥ ", "ë‹¤ì‹œ ì‚¬ëž‘í•œë‹¤ ë§í• ê¹Œ", "1");
+	music[0][11][0].init("ë°œë¼ë“œ", "ì˜¤í˜", "ì†Œë…€", "1");
 	
 
-	music[1][0][0].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "ÃÊÈ¥", "1");
-	music[1][0][1].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "»ç¶û¾Æ", "1");
-	music[1][0][2].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "²É", "1");
-	music[1][0][3].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "Â§ÀÚ¶ó", "1");
-	music[1][0][4].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "ºÒ³ªºñ", "1");
-	music[1][0][5].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "Ã¹»ç¶û", "1");
-	music[1][0][6].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "¾îºÎ¹Ù", "1");
-	music[1][0][7].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "¿Ã·¡", "1");
-	music[1][0][8].init("Æ®·ÎÆ®", "ÀåÀ±Á¤", "Æ®À§½ºÆ®", "1");
-	music[1][1][0].init("Æ®·ÎÆ®", "Áø¼º", "¾Èµ¿¿ª¿¡¼­", "1");
-	music[1][1][1].init("Æ®·ÎÆ®", "Áø¼º", "º¸¸´°í°Ô", "1");
-	music[1][1][2].init("Æ®·ÎÆ®", "Áø¼º", "ÅÂÅ¬À» °ÉÁö¸¶", "1");
-	music[1][2][0].init("Æ®·ÎÆ®", "Á¶¿ëÇÊ", "¹Ù¶÷ÀÇ ³ë·¡", "1");
-	music[1][2][1].init("Æ®·ÎÆ®", "Á¶¿ëÇÊ", "´Ü¹ß¸Ó¸®", "1");
-	music[1][3][0].init("Æ®·ÎÆ®", "Àå¹ÎÈ£", "³²ÀÚ´Â ¸»ÇÕ´Ï´Ù", "1");
-	music[1][4][0].init("Æ®·ÎÆ®", "À±¼öÇö", "ÃµÅÂ¸¸»ó", "1");
-	music[1][5][0].init("Æ®·ÎÆ®", "Áø¹Ì·É", "¹Ì¿î »ç¶û", "1");
-	music[1][6][0].init("Æ®·ÎÆ®", "½ÅÀ¯", "½Ã°è¹Ù´Ã", "1");
-	music[1][7][0].init("Æ®·ÎÆ®", "Á¶Ç×Á¶", "°ÅÁþ¸»", "1");
-	music[1][7][1].init("Æ®·ÎÆ®", "Á¶Ç×Á¶", "³²ÀÚ¶ó´Â ÀÌÀ¯·Î", "1");
-	music[1][8][0].init("Æ®·ÎÆ®", "½É¼öºÀ", "¹é¸¸¼ÛÀÌ Àå¹Ì ", "1");
-	music[1][9][0].init("Æ®·ÎÆ®", "¼­°æÁÖ", "´çµ¹ÇÑ ¿©ÀÚ", "1");
+	music[1][0][0].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì´ˆí˜¼", "1");
+	music[1][0][1].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì‚¬ëž‘ì•„", "1");
+	music[1][0][2].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ê½ƒ", "1");
+	music[1][0][3].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì§ ìžë¼", "1");
+	music[1][0][4].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ë¶ˆë‚˜ë¹„", "1");
+	music[1][0][5].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì²«ì‚¬ëž‘", "1");
+	music[1][0][6].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì–´ë¶€ë°”", "1");
+	music[1][0][7].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "ì˜¬ëž˜", "1");
+	music[1][0][8].init("íŠ¸ë¡œíŠ¸", "ìž¥ìœ¤ì •", "íŠ¸ìœ„ìŠ¤íŠ¸", "1");
+	music[1][1][0].init("íŠ¸ë¡œíŠ¸", "ì§„ì„±", "ì•ˆë™ì—­ì—ì„œ", "1");
+	music[1][1][1].init("íŠ¸ë¡œíŠ¸", "ì§„ì„±", "ë³´ë¦¿ê³ ê²Œ", "1");
+	music[1][1][2].init("íŠ¸ë¡œíŠ¸", "ì§„ì„±", "íƒœí´ì„ ê±¸ì§€ë§ˆ", "1");
+	music[1][2][0].init("íŠ¸ë¡œíŠ¸", "ì¡°ìš©í•„", "ë°”ëžŒì˜ ë…¸ëž˜", "1");
+	music[1][2][1].init("íŠ¸ë¡œíŠ¸", "ì¡°ìš©í•„", "ë‹¨ë°œë¨¸ë¦¬", "1");
+	music[1][3][0].init("íŠ¸ë¡œíŠ¸", "ìž¥ë¯¼í˜¸", "ë‚¨ìžëŠ” ë§í•©ë‹ˆë‹¤", "1");
+	music[1][4][0].init("íŠ¸ë¡œíŠ¸", "ìœ¤ìˆ˜í˜„", "ì²œíƒœë§Œìƒ", "1");
+	music[1][5][0].init("íŠ¸ë¡œíŠ¸", "ì§„ë¯¸ë ¹", "ë¯¸ìš´ ì‚¬ëž‘", "1");
+	music[1][6][0].init("íŠ¸ë¡œíŠ¸", "ì‹ ìœ ", "ì‹œê³„ë°”ëŠ˜", "1");
+	music[1][7][0].init("íŠ¸ë¡œíŠ¸", "ì¡°í•­ì¡°", "ê±°ì§“ë§", "1");
+	music[1][7][1].init("íŠ¸ë¡œíŠ¸", "ì¡°í•­ì¡°", "ë‚¨ìžë¼ëŠ” ì´ìœ ë¡œ", "1");
+	music[1][8][0].init("íŠ¸ë¡œíŠ¸", "ì‹¬ìˆ˜ë´‰", "ë°±ë§Œì†¡ì´ ìž¥ë¯¸ ", "1");
+	music[1][9][0].init("íŠ¸ë¡œíŠ¸", "ì„œê²½ì£¼", "ë‹¹ëŒí•œ ì—¬ìž", "1");
 
-	music[2][0][0].init("ÈüÇÕ", "ÇÁ¸®½ºÅ¸ÀÏ", "Y", "1");
-	music[2][0][1].init("ÈüÇÕ", "ÇÁ¸®½ºÅ¸ÀÏ", "¼öÃëÀÎ ºÒ¸í", "1");
-	music[2][1][0].init("ÈüÇÕ", "½ÎÀÌ", "¾î¶®À»±î", "1");
-	music[2][1][1].init("ÈüÇÕ", "½ÎÀÌ", "¶ß°Å¿î ¾È³ç", "1");
-	music[2][1][2].init("ÈüÇÕ", "½ÎÀÌ", "¿¹¼úÀÌ¾ß", "1");
-	music[2][1][3].init("ÈüÇÕ", "½ÎÀÌ", "°­³²½ºÅ¸ÀÏ", "1");
-	music[2][2][0].init("ÈüÇÕ", "¸®½Ö", "Çì¾îÁöÁö ¸øÇÏ´Â ¿©ÀÚ, ¶°³ª±âÁö ¸øÇÏ´Â ³²ÀÚ", "1");
-	music[2][2][1].init("ÈüÇÕ", "¸®½Ö", "¹ß·¹¸®³ë", "1");
-	music[2][2][2].init("ÈüÇÕ", "¸®½Ö", "±¤´ë", "1");
-	music[2][2][3].init("ÈüÇÕ", "¸®½Ö", "´«¹°", "1");
-	music[2][3][0].init("ÈüÇÕ", "»êÀÌ", "ÇÑ¿©¸§¹ãÀÇ ²Ü", "1");
-	music[2][4][0].init("ÈüÇÕ", "ÇÁ¶óÀÌ¸Ó¸®", "ÀÚ´Ï", "1");
-	music[2][4][1].init("ÈüÇÕ", "ÇÁ¶óÀÌ¸Ó¸®", "¹°À½Ç¥", "1");
-	music[2][4][2].init("ÈüÇÕ", "ÇÁ¶óÀÌ¸Ó¸®", "¾¾½º·ç", "1");
-	music[2][5][0].init("ÈüÇÕ", "¿¥¾¾¸ù", "I Love U Oh Thank U", "1");
-	music[2][5][1].init("ÈüÇÕ", "¿¥¾¾¸ù", "Á×À»¸¸Å­ ¾ÆÆÄ¼­", "1");
-	music[2][5][2].init("ÈüÇÕ", "¿¥¾¾¸ù", "³» »ý¾Ö °¡Àå Çàº¹ÇÑ ½Ã°£", "1");
-	music[2][6][0].init("ÈüÇÕ", "´ÙÀÌ³ª¹Íµà¿À", "Á×ÀÏ³ð", "1");
-	music[2][6][1].init("ÈüÇÕ", "´ÙÀÌ³ª¹Íµà¿À", "°í¹é", "1");
+	music[2][0][0].init("íž™í•©", "í”„ë¦¬ìŠ¤íƒ€ì¼", "Y", "1");
+	music[2][0][1].init("íž™í•©", "í”„ë¦¬ìŠ¤íƒ€ì¼", "ìˆ˜ì·¨ì¸ ë¶ˆëª…", "1");
+	music[2][1][0].init("íž™í•©", "ì‹¸ì´", "ì–´ë• ì„ê¹Œ", "1");
+	music[2][1][1].init("íž™í•©", "ì‹¸ì´", "ëœ¨ê±°ìš´ ì•ˆë…•", "1");
+	music[2][1][2].init("íž™í•©", "ì‹¸ì´", "ì˜ˆìˆ ì´ì•¼", "1");
+	music[2][1][3].init("íž™í•©", "ì‹¸ì´", "ê°•ë‚¨ìŠ¤íƒ€ì¼", "1");
+	music[2][2][0].init("íž™í•©", "ë¦¬ìŒ", "í—¤ì–´ì§€ì§€ ëª»í•˜ëŠ” ì—¬ìž, ë– ë‚˜ê¸°ì§€ ëª»í•˜ëŠ” ë‚¨ìž", "1");
+	music[2][2][1].init("íž™í•©", "ë¦¬ìŒ", "ë°œë ˆë¦¬ë…¸", "1");
+	music[2][2][2].init("íž™í•©", "ë¦¬ìŒ", "ê´‘ëŒ€", "1");
+	music[2][2][3].init("íž™í•©", "ë¦¬ìŒ", "ëˆˆë¬¼", "1");
+	music[2][3][0].init("íž™í•©", "ì‚°ì´", "í•œì—¬ë¦„ë°¤ì˜ ê¿€", "1");
+	music[2][4][0].init("íž™í•©", "í”„ë¼ì´ë¨¸ë¦¬", "ìžë‹ˆ", "1");
+	music[2][4][1].init("íž™í•©", "í”„ë¼ì´ë¨¸ë¦¬", "ë¬¼ìŒí‘œ", "1");
+	music[2][4][2].init("íž™í•©", "í”„ë¼ì´ë¨¸ë¦¬", "ì”¨ìŠ¤ë£¨", "1");
+	music[2][5][0].init("íž™í•©", "ì— ì”¨ëª½", "I Love U Oh Thank U", "1");
+	music[2][5][1].init("íž™í•©", "ì— ì”¨ëª½", "ì£½ì„ë§Œí¼ ì•„íŒŒì„œ", "1");
+	music[2][5][2].init("íž™í•©", "ì— ì”¨ëª½", "ë‚´ ìƒì•  ê°€ìž¥ í–‰ë³µí•œ ì‹œê°„", "1");
+	music[2][6][0].init("íž™í•©", "ë‹¤ì´ë‚˜ë¯¹ë“€ì˜¤", "ì£½ì¼ë†ˆ", "1");
+	music[2][6][1].init("íž™í•©", "ë‹¤ì´ë‚˜ë¯¹ë“€ì˜¤", "ê³ ë°±", "1");
 
-	music[3][0][0].init("´í½º", "°ÅºÏÀÌ", "ºñÇà±â", "1");
-	music[3][0][1].init("´í½º", "°ÅºÏÀÌ", "ºù°í", "1");
-	music[3][1][0].init("´í½º", "¾ÆÀÌÀ¯", "¹Ì¸® ¸Þ¸® Å©¸®½º¸¶½º", "1");
-	music[3][1][1].init("´í½º", "¾ÆÀÌÀ¯", "ÁÁÀº³¯", "1");
-	music[3][1][2].init("´í½º", "¾ÆÀÌÀ¯", "³Ê¶û³ª", "1");
-	music[3][1][3].init("´í½º", "¾ÆÀÌÀ¯", "½º¹°¼Â", "1");
-	music[3][1][4].init("´í½º", "¾ÆÀÌÀ¯", "ÇÏ·ç ³¡", "1");
-	music[3][1][5].init("´í½º", "¾ÆÀÌÀ¯", "ºÐÈ«½Å", "1");
-	music[3][2][0].init("´í½º", "2NE1", "I Don't Care", "1");
-	music[3][2][1].init("´í½º", "2NE1", "Go Away", "1");
-	music[3][3][0].init("´í½º", "ºò¹ð", "ºÓÀº ³ëÀ»", "1");
-	music[3][3][1].init("´í½º", "ºò¹ð", "FANTASTIC BABY", "1");
-	music[3][3][2].init("´í½º", "ºò¹ð", "°ÅÁþ¸»", "1");
-	music[3][4][0].init("´í½º", "¿©ÀÚÄ£±¸", "¿À´ÃºÎÅÍ ¿ì¸®´Â", "1");
-	music[3][5][0].init("´í½º", "ÄÚ¿äÅÂ", "¼øÁ¤", "1");
-	music[3][5][1].init("´í½º", "ÄÚ¿äÅÂ", "½Ç¿¬", "1");
-	music[3][6][0].init("´í½º", "¾¾½ºÅ¸", "·¯ºùÀ¯", "1");
-	music[3][6][1].init("´í½º", "¾¾½ºÅ¸", "SHAKE IT", "1");
+	music[3][0][0].init("ëŒ„ìŠ¤", "ê±°ë¶ì´", "ë¹„í–‰ê¸°", "1");
+	music[3][0][1].init("ëŒ„ìŠ¤", "ê±°ë¶ì´", "ë¹™ê³ ", "1");
+	music[3][1][0].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "ë¯¸ë¦¬ ë©”ë¦¬ í¬ë¦¬ìŠ¤ë§ˆìŠ¤", "1");
+	music[3][1][1].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "ì¢‹ì€ë‚ ", "1");
+	music[3][1][2].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "ë„ˆëž‘ë‚˜", "1");
+	music[3][1][3].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "ìŠ¤ë¬¼ì…‹", "1");
+	music[3][1][4].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "í•˜ë£¨ ë", "1");
+	music[3][1][5].init("ëŒ„ìŠ¤", "ì•„ì´ìœ ", "ë¶„í™ì‹ ", "1");
+	music[3][2][0].init("ëŒ„ìŠ¤", "2NE1", "I Don't Care", "1");
+	music[3][2][1].init("ëŒ„ìŠ¤", "2NE1", "Go Away", "1");
+	music[3][3][0].init("ëŒ„ìŠ¤", "ë¹…ë±…", "ë¶‰ì€ ë…¸ì„", "1");
+	music[3][3][1].init("ëŒ„ìŠ¤", "ë¹…ë±…", "FANTASTIC BABY", "1");
+	music[3][3][2].init("ëŒ„ìŠ¤", "ë¹…ë±…", "ê±°ì§“ë§", "1");
+	music[3][4][0].init("ëŒ„ìŠ¤", "ì—¬ìžì¹œêµ¬", "ì˜¤ëŠ˜ë¶€í„° ìš°ë¦¬ëŠ”", "1");
+	music[3][5][0].init("ëŒ„ìŠ¤", "ì½”ìš”íƒœ", "ìˆœì •", "1");
+	music[3][5][1].init("ëŒ„ìŠ¤", "ì½”ìš”íƒœ", "ì‹¤ì—°", "1");
+	music[3][6][0].init("ëŒ„ìŠ¤", "ì”¨ìŠ¤íƒ€", "ëŸ¬ë¹™ìœ ", "1");
+	music[3][6][1].init("ëŒ„ìŠ¤", "ì”¨ìŠ¤íƒ€", "SHAKE IT", "1");
 	
 
 
@@ -120,7 +120,7 @@ int main()
 	string inputChar ;
 	int SelectMain = 0;
 	int SelectTitle = 0;
-	//·ÎÁ÷
+	//ë¡œì§
 	
 	while (true)
 	{
@@ -146,7 +146,7 @@ int main()
 				{
 				case ballad:
 
-					cout << "¹ß¶óµå" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 12; i++)
 					{
 						for (int j = 0; j < 4; j++)
@@ -160,7 +160,7 @@ int main()
 					break;
 
 				case hiphop:
-					cout << "ÈüÇÕ" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 10; i++)
 					{
 						for (int j = 0; j < 9; j++)
@@ -172,8 +172,8 @@ int main()
 						}
 					}
 					break;
-				case Æ®·ÎÆ®:
-					cout << "Æ®·ÎÆ®" << endl;
+				case íŠ¸ë¡œíŠ¸:
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 7; i++)
 					{
 						for (int j = 0; j < 4; j++)
@@ -186,7 +186,7 @@ int main()
 					}
 					break;
 				case dance:
-					cout << "´í½º" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 7; i++)
 					{
 						for (int j = 0; j < 6; j++)
@@ -211,101 +211,101 @@ int main()
 				switch (fmusic.searchsinger)
 				{
 				case 0:
-					cout << "0.¾ÆÀÌÀ¯" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "0.ì•„ì´ìœ " << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 4; i++)
 					{
 						music[0][0][i].Printsinger();
 					}
-					cout << "´í½º" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 6; i++)
 					{
 						music[3][1][i].Printsinger();
 					}
 					break;
 				case 1:
-					cout << "1.SG ¿ö³Êºñ" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "1.SG ì›Œë„ˆë¹„" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 4; i++)
 					{
 						music[0][1][i].Printsinger();
 					}
 					break;
 				case 2:
-					cout << "2.¼º½Ã°æ" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "2.ì„±ì‹œê²½" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 4; i++)
 					{
 						music[0][2][i].Printsinger();
 					}
 					break;
 				case 3:
-					cout << "3.±ÔÇö" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "3.ê·œí˜„" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][3][i].Printsinger();
 					}
 					break;
 				case 4:
-					cout << "4.¾¾¾ß" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "4.ì”¨ì•¼" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][4][i].Printsinger();
 					}
 					break;
 				case 5:
-					cout << "5. ÇÏµ¿±Õ" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "5. í•˜ë™ê· " << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][5][i].Printsinger();
 					}
 					break;
 				case 6:
-					cout << "6. Á¤ÀºÁö" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "6. ì •ì€ì§€" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][6][i].Printsinger();
 					}
 					break;
 				case 7:
-					cout << "7. ¸°" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "7. ë¦°" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][7][i].Printsinger();
 					}
 					break;
 				case 8:
-					cout << "8.À±ÇÏ" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "8.ìœ¤í•˜" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][8][i].Printsinger();
 					}
 					break;
 				case 9:
-					cout << "9. ÀÌÀû" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "9. ì´ì " << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][9][i].Printsinger();
 					}
 					break;
 				case 10:
-					cout << "10. ±èµ¿·ü" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "10. ê¹€ë™ë¥ " << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][10][i].Printsinger();
 					}
 					break;
 				case 11:
-					cout << "11. ¿ÀÇõ" << endl;
-					cout << "¹ß¶óµå" << endl;
+					cout << "11. ì˜¤í˜" << endl;
+					cout << "ë°œë¼ë“œ" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[0][11][i].Printsinger();
@@ -313,144 +313,144 @@ int main()
 					break;
 				
 				case 13:
-					cout << "13. ÀåÀ±Á¤" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "13. ìž¥ìœ¤ì •" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 9; i++)
 					{
 						music[1][0][i].Printsinger();
 					}
 					break;
 				case 14:
-					cout << "14. Áø¼º" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "14. ì§„ì„±" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 3; i++)
 					{
 						music[1][1][i].Printsinger();
 					}
 					break;
 				case 15:
-					cout << "15. Á¶¿ëÇÊ" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "15. ì¡°ìš©í•„" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[1][2][i].Printsinger();
 					}
 					break;
 				case 16:
-					cout << "16. Àå¹ÎÈ£" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "16. ìž¥ë¯¼í˜¸" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][3][i].Printsinger();
 					}
 					break;
 				case 17:
-					cout << "17. À±¼öÇö" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "17. ìœ¤ìˆ˜í˜„" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][4][i].Printsinger();
 					}
 					break;
 				case 18:
-					cout << "18. Áø¹Ì·É" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "18. ì§„ë¯¸ë ¹" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][5][i].Printsinger();
 					}
 					break;
 				case 19:
-					cout << "19. ½ÅÀ¯" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "19. ì‹ ìœ " << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][6][i].Printsinger();
 					}
 					break;
 				case 20:
-					cout << "20. Á¶Ç×Á¶" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "20. ì¡°í•­ì¡°" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i <2; i++)
 					{
 						music[1][7][i].Printsinger();
 					}
 					break;
 				case 21:
-					cout << "21. ½É¼öºÀ" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "21. ì‹¬ìˆ˜ë´‰" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][8][i].Printsinger();
 					}
 					break;
 				case 22:
-					cout << "22. ¼­°æÁÖ" << endl;
-					cout << "Æ®·ÎÆ®" << endl;
+					cout << "22. ì„œê²½ì£¼" << endl;
+					cout << "íŠ¸ë¡œíŠ¸" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[1][9][i].Printsinger();
 					}
 					break;
 				case 23:
-					cout << "23. ÇÁ¸®½ºÅ¸ÀÏ" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "23. í”„ë¦¬ìŠ¤íƒ€ì¼" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[2][0][i].Printsinger();
 					}
 					break;
 				case 24:
-					cout << "24. ½ÎÀÌ" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "24. ì‹¸ì´" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 4; i++)
 					{
 						music[2][1][i].Printsinger();
 					}
 					break;
 				case 25:
-					cout << "25. ¸®½Ö" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "25. ë¦¬ìŒ" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 4; i++)
 					{
 						music[2][2][i].Printsinger();
 					}
 					break;
 				case 26:
-					cout << "26. »êÀÌ" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "26. ì‚°ì´" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[2][3][i].Printsinger();
 					}
 					break;
 				case 27:
-					cout << "27. ÇÁ¶óÀÌ¸Ó¸®" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "27. í”„ë¼ì´ë¨¸ë¦¬" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 3; i++)
 					{
 						music[2][4][i].Printsinger();
 					}
 					break;
 				case 28:
-					cout << "28. ¿¥¾¾¸ù" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "28. ì— ì”¨ëª½" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 3; i++)
 					{
 						music[2][5][i].Printsinger();
 					}
 					break;
 				case 29:
-					cout << "29. ´ÙÀÌ³ª¹Íµà¿À" << endl;
-					cout << "ÈüÇÕ" << endl;
+					cout << "29. ë‹¤ì´ë‚˜ë¯¹ë“€ì˜¤" << endl;
+					cout << "íž™í•©" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[2][6][i].Printsinger();
 					}
 					break;
 				case 30:
-					cout << "30. °ÅºÏÀÌ" << endl;
-					cout << "´í½º" << endl;
+					cout << "30. ê±°ë¶ì´" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[3][0][i].Printsinger();
@@ -458,39 +458,39 @@ int main()
 					break;
 				case 31:
 					cout << "31. 2NE1" << endl;
-					cout << "´í½º" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[3][2][i].Printsinger();
 					}
 					break;
 				case 32:
-					cout << "32. ºò¹ð" << endl;
-					cout << "´í½º" << endl;
+					cout << "32. ë¹…ë±…" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 3; i++)
 					{
 						music[3][3][i].Printsinger();
 					}
 					break;
 				case 33:
-					cout << "33. ¿©ÀÚÄ£±¸" << endl;
-					cout << "´í½º" << endl;
+					cout << "33. ì—¬ìžì¹œêµ¬" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 1; i++)
 					{
 						music[3][4][i].Printsinger();
 					}
 					break;
 				case 34:
-					cout << "34. ÄÚ¿äÅÂ" << endl;
-					cout << "´í½º" << endl;
+					cout << "34. ì½”ìš”íƒœ" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[3][5][i].Printsinger();
 					}
 					break;
 				case 35:
-					cout << "35. ¾¾½ºÅ¸" << endl;
-					cout << "´í½º" << endl;
+					cout << "35. ì”¨ìŠ¤íƒ€" << endl;
+					cout << "ëŒ„ìŠ¤" << endl;
 					for (int i = 0; i < 2; i++)
 					{
 						music[3][6][i].Printsinger();
@@ -529,7 +529,7 @@ int main()
 
 			case M_totallist:
 				
-				cout << "ÀüÃ¼ ³ë·¡¸ñ·Ï" << endl;
+				cout << "ì „ì²´ ë…¸ëž˜ëª©ë¡" << endl;
 				for (int i = 0; i < 4; i++)
 				{
 					for (int j = 0; j < 12; j++)
