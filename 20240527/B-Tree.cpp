@@ -4,36 +4,36 @@
 using namespace std;
 
 
-// B-Æ®¸® ³ëµåÀÇ Á¤ÀÇ
+// B-íŠ¸ë¦¬ ë…¸ë“œì˜ ì •ì˜
 
 class BTreeNode
 {
-	vector<int> keys;    // ³ëµå¿¡ ÀúÀåµÇ´Â Å°µé
-	int t;  // ÃÖ¼Ò Å°ÀÇ ¼ö
+	vector<int> keys;    // ë…¸ë“œì— ì €ì¥ë˜ëŠ” í‚¤ë“¤
+	int t;  // ìµœì†Œ í‚¤ì˜ ìˆ˜
 
-	vector<BTreeNode*> children;  // ÀÚ½Ä ³ëµåµé
-	bool leaf; // ¸®ÇÁ ³ëµå ¿©ºÎ
+	vector<BTreeNode*> children;  // ìì‹ ë…¸ë“œë“¤
+	bool leaf; // ë¦¬í”„ ë…¸ë“œ ì—¬ë¶€
 
 public:
-	BTreeNode(int _t, bool _leaf); // »ı¼ºÀÚ
+	BTreeNode(int _t, bool _leaf); // ìƒì„±ì
 
-	void insertNonFull(int key); //  ³ëµå°¡ °¡µæ Â÷Áö ¾ÊÀº °æ¿ì »ğÀÔ
-	void splitChild(int i, BTreeNode* y);  // ÀÚ½Ä ºĞÇÒ ³ëµå
-	void traverse();  // Æ®¸® ¼øÈ¸
+	void insertNonFull(int key); //  ë…¸ë“œê°€ ê°€ë“ ì°¨ì§€ ì•Šì€ ê²½ìš° ì‚½ì…
+	void splitChild(int i, BTreeNode* y);  // ìì‹ ë¶„í•  ë…¸ë“œ
+	void traverse();  // íŠ¸ë¦¬ ìˆœíšŒ
 
 	friend class BTree;
 };
 
 class BTree 
 {
-	BTreeNode* root;  // ·çÆ® ³ëµå
-	int t; //ÃÖ¼Ò Å°ÀÇ ¼ö
+	BTreeNode* root;  // ë£¨íŠ¸ ë…¸ë“œ
+	int t; //ìµœì†Œ í‚¤ì˜ ìˆ˜
 
 public:
-	BTree(int _t) : root(nullptr), t(_t) {} // »ı¼ºÀÚ
+	BTree(int _t) : root(nullptr), t(_t) {} // ìƒì„±ì
 
-	void travers() { if (root != nullptr) root->traverse(); }  // Æ®¸® ¼øÈ¸
-	void insert(int key);  // Å° »ğÀÔ
+	void travers() { if (root != nullptr) root->traverse(); }  // íŠ¸ë¦¬ ìˆœíšŒ
+	void insert(int key);  // í‚¤ ì‚½ì…
 };
 
 
@@ -50,7 +50,7 @@ void BTreeNode::insertNonFull(int key)
 
 	if (leaf)
 	{
-		keys.push_back(0); //°ø°£ È®º¸
+		keys.push_back(0); //ê³µê°„ í™•ë³´
 		while (i >= 0 && key < keys[i])
 		{
 			keys[i + 1] = keys[i];
@@ -96,7 +96,7 @@ void BTreeNode::splitChild(int i, BTreeNode* y)
 	children.insert(children.begin() + i + 1, z);
 	keys.insert(keys.begin() + i, y->keys[t - 1]);
 
-	y->keys.pop_back();  //¼öÁ¤ :  y¿¡¼­ Á¦°ÅµÈ Å°¸¦ pop
+	y->keys.pop_back();  //ìˆ˜ì • :  yì—ì„œ ì œê±°ëœ í‚¤ë¥¼ pop
 }
 
 void BTreeNode::traverse()
@@ -161,7 +161,7 @@ int main()
 	t.insert(17);
 	t.insert(75);
 	
-	cout << "Æ®¸® ¼øÈ¸ °á°ú : ";
+	cout << "íŠ¸ë¦¬ ìˆœíšŒ ê²°ê³¼ : ";
 
 	t.travers();
 	cout << endl;
