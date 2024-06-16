@@ -7,20 +7,20 @@ void UI::UITitle()
 }
 void UI::UIMain()
 {
-	cout << "0.Àå¸£" << endl;
-	cout << "1.°¡¼ö" << endl;
-	cout << "2.Á¦¸ñ" << endl;
-	cout << "3.ÀüÃ¼ ¸®½ºÆ®" << endl;
+	cout << "0.ìž¥ë¥´" << endl;
+	cout << "1.ê°€ìˆ˜" << endl;
+	cout << "2.ì œëª©" << endl;
+	cout << "3.ì „ì²´ ë¦¬ìŠ¤íŠ¸" << endl;
 }
 
 void UI::UISearchGenre()
 {
 
-	cout << "Àå¸£¹øÈ£ ÀÔ·ÂÇÏ½Ã¿À" << endl;
+	cout << "ìž¥ë¥´ë²ˆí˜¸ ìž…ë ¥í•˜ì‹œì˜¤" << endl;
 
 	cout << "0. Ballad" << endl;
 	cout << "1. Hiphop" << endl;
-	cout << "2. Æ®·ÎÆ®" << endl;
+	cout << "2. íŠ¸ë¡œíŠ¸" << endl;
 	cout << "3. Dance" << endl;
 
 
@@ -28,42 +28,42 @@ void UI::UISearchGenre()
 
 void UI::UISearchSinger()
 {
-	cout << "°¡¼ö¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ã¿À" << endl;
-	cout << "0. ¾ÆÀÌÀ¯" << endl;
-	cout << "1. SG ¿ö³Êºñ" << endl;
-	cout << "2. ¼º½Ã°æ" << endl;
-	cout << "3. ±ÔÇö" << endl;
-	cout << "4. ¾¾¾ß" << endl;
-	cout << "5. ÇÏµ¿±Õ" << endl;
-	cout << "6. Á¤ÀºÁö" << endl;
-	cout << "7. ¸°" << endl;
-	cout << "8. À±ÇÏ" << endl;
-	cout << "9. ÀÌÀû" << endl;
-	cout << "10. ±èµ¿·ü" << endl;
-	cout << "11. ¿ÀÇõ" << endl;
-	cout << "13. ÀåÀ±Á¤" << endl;
-	cout << "14. Áø¼º" << endl;
-	cout << "15. Á¶¿ëÇÊ" << endl;
-	cout << "16. Àå¹ÎÈ£" << endl;
-	cout << "17. À±¼öÇö" << endl;
-	cout << "18. Áø¹Ì·É" << endl;
-	cout << "19. ½ÅÀ¯" << endl;
-	cout << "20. Á¶Ç×Á¶" << endl;
-	cout << "21. ½É¼öºÀ" << endl;
-	cout << "22. ¼­°æÁÖ" << endl;
-	cout << "23. ÇÁ¸®½ºÅ¸ÀÏ" << endl;
-	cout << "24. ½ÎÀÌ" << endl;
-	cout << "25. ¸®½Ö" << endl;
-	cout << "26. »êÀÌ" << endl;
-	cout << "27. ÇÁ¶óÀÌ¸Ó¸®" << endl;
-	cout << "28. ¿¥¾¾¸ù" << endl;
-	cout << "29. ´ÙÀÌ³ª¹Íµà¿À" << endl;
-	cout << "30. °ÅºÏÀÌ" << endl;
+	cout << "ê°€ìˆ˜ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì‹œì˜¤" << endl;
+	cout << "0. ì•„ì´ìœ " << endl;
+	cout << "1. SG ì›Œë„ˆë¹„" << endl;
+	cout << "2. ì„±ì‹œê²½" << endl;
+	cout << "3. ê·œí˜„" << endl;
+	cout << "4. ì”¨ì•¼" << endl;
+	cout << "5. í•˜ë™ê· " << endl;
+	cout << "6. ì •ì€ì§€" << endl;
+	cout << "7. ë¦°" << endl;
+	cout << "8. ìœ¤í•˜" << endl;
+	cout << "9. ì´ì " << endl;
+	cout << "10. ê¹€ë™ë¥ " << endl;
+	cout << "11. ì˜¤í˜" << endl;
+	cout << "13. ìž¥ìœ¤ì •" << endl;
+	cout << "14. ì§„ì„±" << endl;
+	cout << "15. ì¡°ìš©í•„" << endl;
+	cout << "16. ìž¥ë¯¼í˜¸" << endl;
+	cout << "17. ìœ¤ìˆ˜í˜„" << endl;
+	cout << "18. ì§„ë¯¸ë ¹" << endl;
+	cout << "19. ì‹ ìœ " << endl;
+	cout << "20. ì¡°í•­ì¡°" << endl;
+	cout << "21. ì‹¬ìˆ˜ë´‰" << endl;
+	cout << "22. ì„œê²½ì£¼" << endl;
+	cout << "23. í”„ë¦¬ìŠ¤íƒ€ì¼" << endl;
+	cout << "24. ì‹¸ì´" << endl;
+	cout << "25. ë¦¬ìŒ" << endl;
+	cout << "26. ì‚°ì´" << endl;
+	cout << "27. í”„ë¼ì´ë¨¸ë¦¬" << endl;
+	cout << "28. ì— ì”¨ëª½" << endl;
+	cout << "29. ë‹¤ì´ë‚˜ë¯¹ë“€ì˜¤" << endl;
+	cout << "30. ê±°ë¶ì´" << endl;
 	cout << "31. 2NE1" << endl;
-	cout << "32. ºò¹ð" << endl;
-	cout << "33. ¿©ÀÚÄ£±¸" << endl;
-	cout << "34. ÄÚ¿äÅÂ" << endl;
-	cout << "35. ¾¾½ºÅ¸" << endl;
+	cout << "32. ë¹…ë±…" << endl;
+	cout << "33. ì—¬ìžì¹œêµ¬" << endl;
+	cout << "34. ì½”ìš”íƒœ" << endl;
+	cout << "35. ì”¨ìŠ¤íƒ€" << endl;
 
 
 
@@ -71,5 +71,5 @@ void UI::UISearchSinger()
 
 void UI::UISearchsong()
 {
-	cout << "³ë·¡ Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" << endl;
+	cout << "ë…¸ëž˜ ì œëª©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”" << endl;
 }
