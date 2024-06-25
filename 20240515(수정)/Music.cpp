@@ -20,31 +20,30 @@ void Music::init(string g, string si, string so, string l)
 
 
 
-
 void Music::PrintGenre()
 {
-	cout << "°¡¼ö : " << singer << ",  Á¦¸ñ: " << song << endl;
+	cout << "ê°€ìˆ˜ : " << singer << ",  ì œëª©: " << song << endl;
 }
 
 void Music::Printsinger()
 {
-	cout << "Á¦¸ñ : " << song << endl;
+	cout << "ì œëª© : " << song << endl;
 }
 
 void Music::Printsong()
 {
-	cout << "Àå¸£ : " << genre << ",  °¡¼ö : " << singer << endl;
-	cout << "°¡»ç" << endl << lyrics << endl;
+	cout << "ìž¥ë¥´ : " << genre << ",  ê°€ìˆ˜ : " << singer << endl;
+	cout << "ê°€ì‚¬" << endl << lyrics << endl;
 }
 
 void Music::PrintLyrics()
 {
-	cout << "Àå¸£ : " << genre << ",  °¡¼ö : " << singer << ",  Á¦¸ñ : " << song << endl;
+	cout << "ìž¥ë¥´ : " << genre << ",  ê°€ìˆ˜ : " << singer << ",  ì œëª© : " << song << endl;
 }
 
 void Music::Printtotal()
 {
-	cout << "Àå¸£ : " << genre << ",  °¡¼ö : " << singer << ",  Á¦¸ñ : " << song << endl;
+	cout << "ìž¥ë¥´ : " << genre << ",  ê°€ìˆ˜ : " << singer << ",  ì œëª© : " << song << endl;
 }
 
 string  Music::getgenre()
