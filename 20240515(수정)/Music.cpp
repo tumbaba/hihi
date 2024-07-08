@@ -5,7 +5,7 @@
 
 
 
-void Music::init(string g, string si, string so, string l)
+void Music::init(string g, string si, string so, string l) 
 {
 	genre = g;
 	singer = si;
