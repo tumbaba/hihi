@@ -8,7 +8,7 @@
 void Music::init(string g, string si, string so, string l) 
 {
 	genre = g;
-	singer = si;
+	singer = si;  
 	song = so;
 	lyrics = l;
 }
