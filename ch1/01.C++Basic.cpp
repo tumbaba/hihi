@@ -30,8 +30,10 @@
 // 포함이란 #include 부분에 대상 파일을 복사 붙혀넣기 한다
 
 // Input Output Stream
+//#pragma warning(disable:4789) // 특정 경고를 비활성화 할 수 있다
 #include <iostream>
 #include <format>
+#include <array>
 #include "Function/Function.h"
 
 int GInt = 0;
@@ -545,6 +547,7 @@ int main()
         }
     }
 #pragma endregion
+
 #pragma region 06. 열거형(enum; enumerated type; 이넘)*
     {
         {
@@ -582,6 +585,7 @@ int main()
         }
     }
 #pragma endregion
+
 #pragma region 07. 구조체(struct)***
     {
         enum class ETier : unsigned char
@@ -659,6 +663,7 @@ int main()
         // 그렇기 때문에 읽고 쓰는 속도가 느려질 수 있다.
     }
 #pragma endregion
+
 #pragma region 08. 조건문(if / switch)***
     {
         // if
@@ -695,8 +700,8 @@ int main()
 
         // switch
         {
-            /*int V2 = 0;
-            std::cin >> V2;
+            int V2 = 0;
+            //std::cin >> V2;
             switch (V2)
             {
             case 100:
@@ -705,10 +710,10 @@ int main()
             case 50:
                 std::cout << "V2 == 50\n";
                 break;
-            default:
+            default: // if의 else와 같은 역할
                 std::cout << "default\n";
                 break;
-            }*/
+            }
 
             enum class ETier : unsigned char
             {
@@ -729,6 +734,7 @@ int main()
 
             std::cout << "[Player Info]\n";
             std::cout << std::format("HP: {}, MP: {}, ", Player.HP, Player.MP);
+
             switch (Player.Tier)
             {
             case ETier::None:
@@ -758,6 +764,8 @@ int main()
                 std::cout << "ETier::None";
                 break;
             case ETier::Iron:
+                std::cout << "Iron";
+                [[fallthrough]]; // 에트리뷰트
             case ETier::Bronze:
             case ETier::Silver:
                 std::cout << "Iron or Bronze or Silver";
@@ -776,6 +784,10 @@ int main()
             }
             else if (Player.Tier == ETier::Iron || Player.Tier == ETier::Bronze || Player.Tier == ETier::Silver)
             {
+                if (Player.Tier == ETier::Iron)
+                {
+                    std::cout << "Iron";
+                }
                 std::cout << "Iron or Bronze or Silver";
             }
             else if (Player.Tier == ETier::Gold)
@@ -790,6 +802,7 @@ int main()
         }
     }
 #pragma endregion
+
 #pragma region 09. 논리 연산자**
     {
         // !: 논리 부정
@@ -903,6 +916,7 @@ int main()
         }
     }
 #pragma endregion
+
 #pragma region 10. 함수(fucntion)***
     {
         // 규모가 큰 프로그램에서 모든 코드를 main함수 안에 담게 되면
@@ -919,7 +933,7 @@ int main()
 
         // 함수도 시작 주소가 있습니다.
         // 함수를 호출한다는건
-        // >> 돌아올 다음주소를 Backup 해두고
+        // >> 돌아올 다음주소를 Stack에 Backup 해두고
         // >> 호출할 함수의 주소로 이동
         // >> 함수 수행
         // >> ret을 만나면 Backup해둔 주소로 이동
@@ -952,7 +966,332 @@ int main()
         std::cout << Result4 << std::endl;
     }
 #pragma endregion
+
 #pragma region 11. Bit flag
+    {
+        unsigned char Property1 = EPropertyFlags::EProperty1;
+        HasFlags(Property1);
+        unsigned char Property3 = EPropertyFlags::EProperty3;
+        HasFlags(Property3);
+
+        // 0000 0001
+        // 0000 0100
+        // --------- OR
+        // 0000 0101
+        unsigned char Property13 = EPropertyFlags::EProperty1 | EPropertyFlags::EProperty3;
+        HasFlags(Property13);
+
+        unsigned char Property135 = Property13;
+        //Property135 = Property135 | EPropertyFlags::EProperty5;
+        Property135 |= EPropertyFlags::EProperty5;
+        HasFlags(Property135);
+
+        unsigned char Property35 = Property135;
+
+        // EPropertyFlags::EProperty1 : 0000 0001
+        // ~EPropertyFlags::EProperty1: 1111 1110
+        // 0001 0101
+        // 1111 1110
+        // --------- AND
+        // 0001 0100
+
+        Property35 = Property35 & ~EPropertyFlags::EProperty1;
+        HasFlags(Property35);
+
+        // 0000 0010
+        // 0000 1000
+        // ---------- OR
+        // 0000 1010
+        unsigned char Toggle = EProperty2 | EProperty4;
+        HasFlags(Toggle);
+
+        // 0000 1010 (2, 4)
+        // 0000 1000 (4)
+        // --------- XOR (같으면 0 다르면 1)
+        // 0000 0010 (2)
+        Toggle ^= EProperty4;
+        HasFlags(Toggle);
+        // 0000 0010 (2)
+        // 0000 1000 (4)
+        // --------- XOR
+        // 0000 1010 (2,4)
+        Toggle = Toggle ^ EProperty4;
+        HasFlags(Toggle);
+
+        unsigned char Flags = EPropertyFlags::ENone;
+        // 지정
+        Flags = EProperty1;
+
+        // 켜기
+        Flags |= EProperty2;
+
+        // 끄기
+        Flags &= ~EProperty2;
+
+        // 토글(껏다 켰다)
+        Flags ^= EProperty3;    // 켜짐
+        Flags ^= EProperty3;    // 꺼짐
+        Flags ^= EProperty3;    // 켜짐
+        Flags ^= EProperty3;    // 꺼짐
+    }
+#pragma endregion
+
+#pragma region 12. 배열(array)
+    {
+        int a{}, b{}, c{};
+        a = 1;
+        b = 2;
+        c = 3;
+
+        // 1차원 배열
+        {
+            // int 데이터 5개(count)를 만들겠다
+            int Array[5]{ 5,4,1,8,3 };
+            int aa = 99;
+            // 0번 index(또는 원소)에 1을 넣겠다
+            // Array의 시작 주소로 부터 타입의 크기(int) * 인덱스만큼 건너뛴 메모리 값을 편집한다
+            // Array 시작주소 + TypeSize(int) * index
+            Array[0] = 1;
+            Array[1] = 2;
+            Array[2] = 3;
+            Array[3] = 4;
+            Array[4] = 5;
+            //Array[5] = 6;
+
+            int Size = sizeof(int);     // 4Byte
+            int Size2 = sizeof(Size);   // 4Byte
+            int ArraySize = sizeof(Array); // 20Byte: int(4) * 갯수(count:5) = 20
+            int ArrayElemSize = sizeof(Array[0]);   // 4Byte
+            int ArrayElemCount = ArraySize / ArrayElemSize; // 20 / 4 = 5
+        }
+        // 2차원 배열
+        {
+            // Array[0][0] Array[0][1] Array[0][2] Array[1][0] Array[1][1] Array[1][2]
+            int Array[2][3]{};
+            Array[0][0] = 0;
+            Array[0][1] = 1;
+            Array[0][2] = 2;
+            Array[1][0] = 3;
+            Array[1][1] = 4;
+            Array[1][2] = 5;
+        }
+
+        // 1차원 배열 (std::array)
+        {
+            std::array<int, 5> Array{ 0,5,3,1,5 };
+            Array[0] = 0;
+            Array[1] = 1;
+            Array[2] = 2;
+            Array[3] = 3;
+            Array[4] = 4;
+
+            // typedef unsigned __int64 size_t;
+            // typedef는 왼쪽에 있는 타입을 오른족에 있는 이름으로 바꿔서 쓸 수 있게 해준다
+            size_t Size = Array.size();
+        }
+    }
+#pragma endregion
+
+#pragma region 13. 반복문(loop)**
+    {
+        // while
+        {
+            int i = 0;
+            while (i < 5)
+            {
+                std::cout << std::format("i: {}\n", i);
+                ++i;
+
+                if (i == 3)
+                {
+                    std::cout << "i가 3일때 탈출!\n";
+                    break;
+                }
+            }
+        }
+        // do while
+        {
+            // while과는 다르게 조건을 만족하지 못했을 때도
+            // 처음 한번은 실행 해준다
+            int i{ 30 };
+            do
+            {
+                std::cout << "Test\n";
+            } while (i < 5);
+        }
+        // for
+        {
+            //  초기화;    판별식; for문이 한번 끝나고 실행될 코드
+            for (int i = 0, j = 5; i < 5; ++i, ++j, FirstTrue())
+            {
+                std::cout << std::format("i: {}, j: {}\n", i, j);
+            }
+            // int i = 10;
+
+            const int Size = 6;
+            int Array[Size]{};
+            for (int i = 0; i < Size; ++i)
+            {
+                //Array[0] = 0;
+                //Array[1] = 1;
+                Array[i] = i;
+            }
+
+            // 범위기반 for(range based for)
+            for (int i : Array)
+            {
+                std::cout << i << std::endl;
+            }
+
+            std::array<int, Size> StdArray{};
+            size_t ArraySize = StdArray.size();
+            for (size_t i = 0; i < ArraySize; ++i)
+            {
+                StdArray[i] = i;
+            }
+
+            for (int i : StdArray)
+            {
+                std::cout << std::format("i값은: {}\n", i);
+            }
+
+            // CTAD(class template argument deduction: 클래스 템플릿 인수 추론)
+            // C++20
+            for (std::array Array2{ 1,2,3 }; int i : Array2)
+            {
+                std::cout << std::format("i값은: {}\n", i);
+            }
+            //Array2;
+
+            // 추가적으로, if 도 조건문 이전에 int i = 0; 와 같이 초기화 구문을 넣을 수 있다.
+            if (int i = 0; i < 10)
+            {
+
+            }
+        }
+    }
+#pragma endregion
+
+#pragma region 14. 포인터와 동적 할당(pointer*****, dynamic allocation) + 레퍼런스*****(Reference; 참조)
+    {
+        // 메모리 할당과 이를 관리하는 것은 C++프로그래밍에서 문제가 발생하기 쉬운 영역입니다.
+        // 품질이 뛰어난 C++프로그램을 작성하기 위해서는 메모리 내부 작동 방식을 이해하고 있어야 합니다.
+        // 이번 시간에는 동적 메모리를 다루는 과정에서 어떤 위험에 빠지기 쉬운지 알아보고 이런 상황을
+        // 해결하거나 애초에 방지하는 방법을 알아보겠습니다.
+
+        // low-level(저수준; 낮은수준) 메모리 연산 방법은 new, new[], delete, delete[]
+        // 또는 C스타일의 malloc(memory allocation), free라는 함수를 사용하는 방법이 있습니다.
+        // 요즘 와서는 로우레벨 메모리 연산을 최대한 피하는 추세라고 생각됩니다.
+        // 저도 실무에서 활동할때 저수준의 동적 할당을 사용했던 적이 몇번 없었던 것 같습니다.
+        // 예를 들면 표준 라이브러리에서 제공하는 vector라는 컨테이너(동적 배열)가 있는데
+        // 이를 사용하면 필요할 때 메모리를 늘리거나 줄일 수 있습니다.
+        // 또는 동적으로 할당한 메모리를 사용하지 않으면 자동으로 해제해주는 shared_ptr 등의
+        // 스마트 포인터를 사용하기도 합니다.
+
+        // 동적 메모리를 이용하면 컴파일 시간에 크기를 확정할 수 없는 데이터를 다룰 수 있습니다.
+        {
+            // 지역변수는 시작과 끝 스코프({}) 내부에서 선언되는 변수를 의미합니다.
+
+            // 유저 영역의 메모리 공간은 크게 4구획을 나누어 져있다고 생각하시면 편합니다.
+            // [코드 영역]   : 소스코드가 기계어로 변환되어 실제 로직을 수행하는 코드 정보
+            // [데이터 영역] : 전역변수, static변수 등
+            // [Heap]        : 동적 할당 (아직 배우지 않음)
+            // [Stack]       : 지역 변수
+
+
+            // [프로그램의 메모리 구조]
+            // ---------------- 소스 코드 영역 -------------
+            // ... 여러분 또는 누군가가 작성해둔 코드가 어셈으로 기록되어 있다
+            // -----------------데이터 영역 ----------------
+            // ... 전역변수, static(정적) 변수
+            // ----------------- Heap 영역 -----------------
+            // ... 동적 할당 (실행 중에 메모리 요청을 하는 것)
+            // ..
+            // ..
+            // 
+            // 
+            // .. 
+            // // 지역 변수, 함수 호출 이후 복귀 주소 등
+            // --------------- Stack 영역 ------------------
+
+            // 실행시간(런타임;Run time)에 동적으로 메모리 공간이 필요한 경우 OS(운영체제; Operating System)
+            // 에 메모리를 요청해야 하는데, 이런 과정에서 커널에 요청할 필요가 있습니다.
+            // 커널은 OS 중 항상 메모리에 올라가 있는 운영체제의 핵심 부분으로, 하드웨어와 응용 프로그램
+            // 사이에서 인터페이스 역할을 제공합니다.
+            // 커널에 요청하는 경우 이를 system call이라고 합니다. (메모리 할당을 할때마다 system call이 발생
+            // 하지는 않을 수 있습니다)
+            // 이 system call은 유저 영역과 커널 영역을 넘나드는 호출로서 상당한 비용을 지불하게 됩니다.
+        }
+        {
+            // 64비트 환경에서는 포인터의 크기가 8Byte
+            // 32비트 환경에서는 포인터의 크기가 4Byte
+            // [Stack]                                      // [Heap]
+            // [0xfff] Pointer(8Byte;64bit기준) = nullptr
+
+            // Pointer 변수는 주소를 들고 있을 것이다.
+            // 그리고, 그 주소로 접근하며 int 변수가 있을 것이다.
+            int* Pointer{ nullptr }; // 실제 값은 0, 프로그래머를 위해서 0을
+            // 쓰는 것 보다 nullptr을 넣어주면 더 명확하게 의미를 전달 할 수 있다.
+
+            // 포인터의 크기는 플랫폼 bit수에(Ex.64 or 32) 대응해서 변경됩니다.
+            // 32bit라면 최대 표현 가능한 주소가 FFFF FFFF(10진수로 4,294,967,295) 으로
+            // unsigned int 범위에 해당한다. 즉 4byte만 있으면 모든 32bit 주소를 표현 할 수 있다.
+            // 64bit 라면 FFFF FFFF FFFF FFFF 까지 총 8Byte로 모든 주소를 표현 할 수 있다.
+
+            // [Stack]                                      // [Heap]
+            // [0xfff..] Size (8Byte; size_t 의 크기가 64bit에서는 8Byte)
+            // [0xfff..] Size2
+            // int*의 의미는 지금 내가 가지고 있는 주소(*)로 가면 그 값은 int야 라는 의미
+            size_t Size = sizeof(int*);
+            // char*의 의미는 지금 내가 가지고 있는 주소(*)로 가면 그 값은 char야 라는 의미
+            size_t Size2 = sizeof(char*);
+        }
+        {
+            // [Stack]                                      // [Heap]
+            // [0xfff...] a(4Byte) = 100
+            // [0xfff...] 4Byte padding
+            // [0xfff...] Pointer(8Byte) = nullptr
+            // [0xfff...] b(4Byte) = 20
+            int a = 100;
+            int* Pointer{ nullptr };
+            int b = 20;
+
+            // [Stack]                                      // [Heap]
+            // [0xfff...] a(4Byte) = 100
+            // [0xfff...] 4Byte padding
+            // [0xfff...] Pointer(8Byte) = 0x100   <-------    [0x100] int[4Byte] = 10
+            // [0xfff...] b(4Byte) = 20
+            Pointer = new int{ 10 };
+
+            // [Stack]                                      // [Heap]
+            // [0xfff...] Pointer(8Byte) = 0x100   <-------    [0x100] int[4Byte] = 10 -> 999
+            // 이곳에 붙은 포인터 기호는 역참조 연산이라고 이야기 한다
+            *Pointer = 999;
+
+            // [Stack]                                      // [Heap]
+            // [0xfff...] Pointer(8Byte) = 0x100   <-------    [0x100] int[4Byte] = 999
+            // [0xfff...] Read(4Byte) = 999
+            int Read = *Pointer;
+
+            // 할당한 Memory를 해제
+            delete Pointer;
+            // int Read2 = *Pointer;
+
+            // https://en.wikipedia.org/wiki/Magic_number_(programming)
+            {
+                // [Stack]                                      // [Heap]
+                // [0xfffffff0] a(4Byte) = 100
+                // ...
+                // [0xfff...] Pointer2(8Byte) = 0xfffffff0;
+                int* Ponter2 = &a;
+                std::cout << std::format("Pointer2: {:X} &a: {:X}, *Pointer2: {}, a: {}\n", (size_t)Ponter2, (size_t)&a, *Ponter2, a);
+                *Ponter2 = 1234;
+
+                std::cout << std::format("Pointer2: {:X} &a: {:X}, *Pointer2: {}, a: {}\n", (size_t)Ponter2, (size_t)&a, *Ponter2, a);
+                // int* Ponter3 = (int*)0xFFFFFFFFFFFFFFFF;
+            }
+        }
+    }
 #pragma endregion
 }
 
