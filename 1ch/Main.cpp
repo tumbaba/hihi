@@ -1,4 +1,4 @@
-﻿﻿// 솔루션 탐색기 -> 모든 파일 표시로 변경
+﻿// 솔루션 탐색기 -> 모든 파일 표시로 변경
 
 // 프로젝트 우클릭 -> 속성 -> 중간 디렉터리, 출력 디렉터리 변경
 // 프로젝트 우클릭 -> 속성 -> C++20
@@ -34,7 +34,7 @@
 #include <iostream>
 #include <format>
 #include <array>
-#include "Function/Function.h"
+#include "Function.h"
 
 int GInt = 0;
 
@@ -179,7 +179,7 @@ int main()
             long long LL1{ 14LL };
             unsigned int Var3{ 4294967295 };
             unsigned int Var4{ (unsigned int)4294967296 };
-            long long LL2{ 4294967296 };
+            long long LL2{ 4294967296LL };
             //long long LL3{ (unsigned int)4294967296 };
         }
         {
@@ -189,6 +189,7 @@ int main()
             // 특징으로 인해서 오차가 발생할 수 있다.
             float F{ 3.14F };
             int Int{ (int)3.14F };
+            int Int2{ (int)3.999F }; // 소수점 부분 내림 처리
 
             // Debug 인 경우 메모리 뒷쪽에
             // 추가 정보가 기본적으로 들어가 있어서
@@ -1121,7 +1122,7 @@ int main()
         }
         // for
         {
-            //  초기화;    판별식; for문이 한번 끝나고 실행될 코드
+            //  초기화;           판별식; for문이 한번 끝나고 실행될 코드
             for (int i = 0, j = 5; i < 5; ++i, ++j, FirstTrue())
             {
                 std::cout << std::format("i: {}, j: {}\n", i, j);
@@ -1163,10 +1164,11 @@ int main()
             }
             //Array2;
 
-            /*if (int i = 0; i < 10)
+            // 추가적으로, if 도 조건문 이전에 int i = 0; 와 같이 초기화 구문을 넣을 수 있다.
+            if (int i = 0; i < 10)
             {
 
-            }*/
+            }
         }
     }
 #pragma endregion
@@ -1290,6 +1292,220 @@ int main()
                 // int* Ponter3 = (int*)0xFFFFFFFFFFFFFFFF;
             }
         }
+        {
+            // [Stack]                                      // [Heap]
+            // [0xfff...] Pointer(8Byte) = 0x100
+            int* Pointer{ nullptr };
+
+            // [Stack]                                      // [Heap]
+            // [0xfff...] Pointer(8Byte) = 0x100   <-------    [0x100] int[4Byte] = 10
+            Pointer = new int{ 10 };
+
+            // 할당한 메모리를 해제하지 않고 넘어가는 경우 이를,
+            // 메모리 누수(메모리 릭, memory leak)이라고 부릅니다.
+
+            // 동적 할당한 메모리를 다른 주소로 덮어 쓰는 경우에도 
+            // 원본 주소를 해제할 수 없다.
+            // Pointer = (int*)10000;
+
+            int* TempPointer = Pointer;
+            *TempPointer = 100;
+            delete Pointer;
+
+            // 댕글링 포인터: 이미 해제된 메모리 주소를 들고 있는 상황
+            // 이떄 해당 memory에 write하는 경우 프로그램이 죽을수도 있고
+            // 잘 동작 할 수 도 있다. 하지만 잠재적인 위험이 아주 높다.
+            // 가끔 잘 동작하다가 죽는 버그 원인을 찾았더니 댕글링 포인터가 원인인
+            // 경우들이 종종 발견 됩니다.
+            *TempPointer = 100;
+        }
+        {
+            // C언어를 배우셨다면 malloc을 사용해서 메모리를 할당 했을 텐데,
+            // C++에서도 사용할 수 있습니다.
+            // malloc과 new는 큰 차이가 있습니다.
+            // 아직 배우지는 않았지만, new와 delete는 초기화 및 struct 또는 class에서
+            // 생성자와 소멸자를 호출해주는 역할을 수행합니다.
+            // 그러나, malloc는 순수하게 memory 할당만 해줍니다.
+            // int*를 new로 동적할당 할때는 초기화를 할 수 있었습니다.
+            // 하지만, malloc은 초기화 불가
+            int* Pointer = (int*)malloc(sizeof(int));
+            *Pointer = 1000;
+            free(Pointer);
+        }
+        {
+            // [Stack]                                          // [Heap]
+            // [0xfff...] Pointer(8Byte) = 0x100                0x100 [int][int][int][int][int][int]
+            int* ArrayPointer = new int[6] {0, 1, 2, 3, 4, 5};
+            ArrayPointer[0] = 1000;
+            ArrayPointer[1] = 1200;
+
+            // 0x100 + 0 * sizeof(int) = 0x100
+            *ArrayPointer = 9999;
+            // 0x100 + 1 * sizeof(int) = 0x104
+            *(ArrayPointer + 1) = 8888;
+
+            for (int i = 0; i < 6; ++i)
+            {
+                ArrayPointer[i] = i + 10;
+
+                // Array(int*) + 0  Array + 1       Array + 2       Array + 3
+                // [00 00 00 01]    [00 00 00 02]   [00 00 00 03]   [00 00 00 04]...
+                *(ArrayPointer + i) = i;
+            }
+            // 1, 2,3 이렇게 주소로 부터 상대적으로 떨어진 위치를 말로 표현할때 offset이라고 이야기
+            // 하는 경우가 있다.
+            *((char*)ArrayPointer + 1) = 255;
+            *((char*)ArrayPointer + 2) = 255;
+            *((char*)ArrayPointer + 3) = 255;
+            *((short*)ArrayPointer + 1) = 9999;
+            *((__int64*)ArrayPointer + 0) = 9999;
+            *((__int64*)ArrayPointer + 1) = 9999;
+            delete[] ArrayPointer;
+
+            // 2차원 이상 배열도 동적 할당으로 구현 가능하나,
+            // 저는 실무에서 사용할 일이 없었습니다.
+        }
+        {
+            struct FStruct
+            {
+                // 생성자: 인스턴스가 만들어질때 호출되는 함수
+                // __thiscall: 호출하는 쪽에서 파라미터로 자기자신의 주소를 전달
+                FStruct(/*FStruct* This*/)
+                {
+                    // this + 0Byte => Value
+                    // this + 4Byte => Value2
+                    this;
+                    int a = this->Value;
+                    int B = this->Value2;
+                    std::cout << std::format("V: {}, V2: {}\n", this->Value, Value2);
+                }
+                FStruct(const int InValue)
+                    // 초기화 순서는 변수를 선언한 순서대로 동작한다
+                    : /*Value2(Value),*/ Value(InValue)/*, Value2(Value)*/
+                {
+                    std::cout << std::format("V: {}, V2: {}\n", Value, Value2);
+                }
+                // 소멸자: 인스턴스가 소멸되는 시점에 호출되는 함수
+                // 컴파일러가 소멸예측 지점 (Stack: 스코프를 벗어나는 지점, Heap: delete를 하는 시점)
+                // 에 코드에 소멸자를 호출하도록 심어둔다
+                ~FStruct()
+                {
+                }
+                int Value = 10;
+                int Value2 = 20;
+            };
+            FStruct Struct = FStruct();
+            Struct.Value;
+            FStruct Struct2 = FStruct(100);
+
+            FStruct* StructPointer = new FStruct(12);
+            StructPointer->Value = 999;
+            int* Test = (int*)StructPointer + 1;
+            *Test = 888;
+            delete StructPointer;
+
+            {
+                // malloc은 요청한 size만큼 메모리 블록만 할당.
+                // new는 요청한 size만큼 메모리 블록을 할당 후 초기화(struct 와 같은 경우 생성자 호출)
+                FStruct* MallocStruct = (FStruct*)malloc(sizeof(FStruct));
+
+                // free는 해당 메모리 블록을 할당 해제
+                // delete와 다르게 소멸자는 호출하지 않는다
+                free(MallocStruct);
+            }
+
+            // 저수준의 동적할당은 사용빈도가 줄었다고 했지만,
+            // 포인터는 사용하지 않는날이 없는 수준
+
+            {
+                int Value = 0;
+                // Function call, 인자 복사
+                // int InValue = Value;
+                // Value = InValue;
+                Value = CallByValue(Value);
+
+                FParam Param = FParam();
+                Param.Value[2] = 1234;
+
+                // Call by value로 함수 호출을 한 경우
+                // FParam InParam = FParam(Param);
+                // FParam Temp = InParam; // 복사 생성자 호출됨(함수 리턴 되기 직전에 InParam을 임시 변수에 Backup)
+                // InParam.~FParam(); // 소멸자 호출
+                // Param.operator=(Temp); // 대입 연산자 호출됨
+                // Temp.~FParam(); // 소멸자 호출
+                // Param.~FParam(); // 소멸자 호출
+                Param = CallByValue(Param);
+            }
+            {
+                int a = 0;
+                int* Pointer = &a;
+                a = 999;
+                //*Pointer = 1234;
+
+                /*int* InPointer = Pointer;
+                *InPointer = 1234;
+                *Pointer = 1234;*/
+                CallByPointer(&a);
+                CallByPointer(Pointer);
+
+                FParam Param = FParam();
+                FParam* ParamPointer = &Param;
+
+                FParam* InPointer = &Param;
+                InPointer->Value[0] = 9999;
+                InPointer->Value[5] = 5555;
+                (*InPointer).Value[0] = 1234;
+                CallByPointer(&Param);
+                CallByPointer(ParamPointer);
+            }
+            {
+                FParam Param; TestConstructor(&Param);
+
+                FTTest TTest;
+                TestConstructor(&TTest);
+
+                int a = 200;
+                int b = 400;
+
+                TestConstructor((void*)&a);
+            }
+            {
+                // 레퍼런스, 참조
+
+                // 포인터와 레퍼런스의 차이
+
+                int a = 5;
+                int* Pointer = &a;  // 대상을 a로 변경
+                *Pointer = 100;     // a의 값이 변경됨
+
+                // Pointer는 가리키던 대상을 바꿀 수 있다.
+                int b = 999;
+                Pointer = &b;       // 대상을 b로 변경
+                *Pointer = 1234;    // b의 값이 변경됨
+
+                int* const PointerLikeReference = &a;
+                // PointerLikeReference = &b; // * 오른쪽에 const가 붙어 있으면 가리키던 대상을 바꿀 수 없다
+                *PointerLikeReference = 10000;
+                const int* ConstPointer = &a; // * 왼쪽에 const가 붙어 있으면 가리키던 대상의 값을 바꿀 수 없다.
+                //*ConstPointer = 9999;
+                ConstPointer = &b;
+
+                const int* const PointerCantChnage = &a; // 둘다 변경 불가!
+                /*PointerCantChnage = &b;
+                *PointerCantChnage = 1000;*/
+
+                int& Reference = a; // 처음 초기화 시점에 반드시 대상이 와야하며, 이후 변경할 수 없다.
+                Reference = b;      // 주소가 바뀌는 것이 아니라, 처음 연동한 a의 값이 b에 있는 값(1234)로 변경 된다.
+                // Reference = &b;  // 이후 가리키던 주소를 변경할 수 없다.
+
+                int TestValue = 0;
+                CallByReference(TestValue);
+                CallByPointer(&TestValue);
+
+                FParam Param;
+                CallByReference(Param);
+            }
+        }
     }
 #pragma endregion
 }
@@ -1308,4 +1524,4 @@ void Function2()
 //   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
 //   4. [오류 목록] 창을 사용하여 오류를 봅니다.
 //   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다
+//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
