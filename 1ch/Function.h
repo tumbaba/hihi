@@ -70,10 +70,14 @@ struct FParam
 
 FParam CallByValue(FParam InParam);
 
-void CallByPointer(int* InPointer);
-void CallByReference(int& InReference);
-void CallByPointer(FParam* InPointer);
-void CallByReference(FParam& InReference);
+void CallByPointer(int* OutPointer);
+void CallByReference(int& OutReference);
+void CallByPointer(FParam* OutPointer);
+void CallByReference(FParam& OutReference);
+void TestUnique(std::unique_ptr<int>& OutUnique);
+void TestUnique(std::unique_ptr<int>* OutUnique);
+void TestShared(std::shared_ptr<int> OutShared);
+void TestWeak(std::weak_ptr<FParam> OutWeak);
 
 inline void TestConstructor(FParam* InThis)
 {
@@ -104,3 +108,42 @@ inline void TestConstructor(void* InPointer)
 	int AA = *((int*)InPointer + 0);
 	int BB = *((int*)InPointer + 1);
 }
+
+void FunctionWithPointer(int* OutPointer);
+void FunctionWithReference(int& OutPointer);
+
+// 메크로라고 하고
+// 왼쪽에 있는 이름으로 사용하고, 이는 오른쪽으로 대체된다
+#define SAFE_DELETE(Var) delete Var;\
+	Var = nullptr;
+#define Wow int
+#define HI std::cout <<"Hi~\n";
+#define Hmm(a, b) a < b
+
+void Swap(int& InOutFirst, int& InOutSecond);
+
+#include <array>
+#include <vector>
+
+// 입력으로 들어온 수들을 짝수와 홀수로 구분해서 OutOdds와 OutEvens에 저장해서 반환한다
+// const std::array<int, 10>* const InNumbers: 입력으로 들어올 숫자들
+// OutOdds: 홀수
+// OutEvens: 짝수
+void SeperateOddsAndEvens(const std::array<int, 10>* const InNumbers,
+	std::vector<int>* const OutOdds, std::vector<int>* const OutEvens);
+
+// 상속: 쉽게 생각해서 누군가 이미 만들어둔 기능을 내가 가져와서 쓰겠다
+struct FSharedTest : public std::enable_shared_from_this<FSharedTest>
+{
+	FSharedTest() {}
+	FSharedTest(int InA) : A(InA) {}
+
+	void Hello()
+	{
+		std::cout << "Hello " << A << std::endl;
+	}
+
+	int A = 100;
+};
+
+void SharedTestFunction(std::shared_ptr<FSharedTest> InShared);

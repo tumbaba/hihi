@@ -1,3 +1,7 @@
+﻿#include <iostream>
+#include <format>
+#include <array>
+#include "Function.h"
 ﻿// 솔루션 탐색기 -> 모든 파일 표시로 변경
 
 // 프로젝트 우클릭 -> 속성 -> 중간 디렉터리, 출력 디렉터리 변경
@@ -31,12 +35,11 @@
 
 // Input Output Stream
 //#pragma warning(disable:4789) // 특정 경고를 비활성화 할 수 있다
-#include <iostream>
-#include <format>
-#include <array>
-#include "Function.h"
+
 
 int GInt = 0;
+//std::unique_ptr<int> GUnique = std::make_unique<int>(100);
+//int* GTest = new int(100);
 
 bool FirstTrue()
 {
@@ -1506,6 +1509,158 @@ int main()
                 CallByReference(Param);
             }
         }
+
+        {
+            int* Pointer = nullptr;
+            FunctionWithPointer(Pointer);
+            int a = 10;
+            FunctionWithPointer(&a);
+
+            if (Pointer == nullptr)
+            {
+                Pointer = new int{ 5 };
+                FunctionWithPointer(Pointer);
+
+                int* PointerB = Pointer;
+                SAFE_DELETE(Pointer);
+                FunctionWithPointer(Pointer);
+
+                Wow hello;
+                HI;
+                if (Hmm(10, 20)) // 이런 메크로는 사용하지 마세요
+                {
+
+                }
+
+                // PointerB는 댕글링 포인터
+                // 이미 delete된 메모리 주소를 들고 있는 상황
+                //FunctionWithPointer(PointerB);
+            }
+
+            {
+                int* PointerB = new int{ 5 };
+                int& ReferenceB = *PointerB;
+                ReferenceB = 999;
+                *PointerB = 1234;
+                SAFE_DELETE(PointerB);
+                FunctionWithReference(ReferenceB);
+            }
+        }
+        {
+            int a = 20, b = 10;
+            Swap(a, b); // a: 10, b: 20
+        }
+        {
+            std::array Numbers{ 1,2,3,4,5,6,7,8,9,10 };
+            std::vector<int> Odds, Evens;
+            SeperateOddsAndEvens(&Numbers, &Odds, &Evens);
+        }
+    }
+#pragma endregion
+
+#pragma region 15. SmartPointer**
+    {
+        using namespace std;
+        // unique_ptr
+        {
+            // unique_ptr 생성 및 역참조
+            // 소멸자 호출이 되면서 Heap memory를 delete 한다
+            {
+                unique_ptr<int> Unique = make_unique<int>(100);
+                *Unique = 1000;
+            }
+            // 다른 unique_ptr에 대입을 할 수 없다.
+            {
+                unique_ptr<int> Unique = make_unique<int>(100);
+                *Unique = 1000;
+                //unique_ptr<int> Unique2 = Unique;
+                int* Pointer = Unique.get();
+                *Pointer = 999;
+                CallByPointer(Unique.get());
+                TestUnique(Unique);
+                TestUnique(&Unique);
+
+                // 소유권 이전을 통해서 unique_ptr 전달 가능
+                unique_ptr<int> Unique2 = std::move(Unique);
+                int* Pointer2 = Unique.get();
+                int* Pointer3 = Unique2.get();
+
+                //GUnique = move(Unique2);
+            }
+        }
+        //int* Test222 = GUnique.get();
+
+        // shared_ptr
+        {
+            // 레퍼런스 카운팅 방식으로, 참조 횟수를 저장하고 있다가
+            // 0이되면 실제로 Memory를 delete한다
+            shared_ptr<int> SharedPtr;
+            {
+                shared_ptr<int> Shared = make_shared<int>(100);
+                long Count = Shared.use_count();
+                shared_ptr<int> Shared2 = Shared;
+                long Count2 = Shared.use_count();
+                SharedPtr = Shared;
+                long Count3 = Shared.use_count();
+
+                TestShared(Shared);
+            }
+            long Count4 = SharedPtr.use_count();
+            {
+                shared_ptr<FParam> Shared = make_shared<FParam>();
+                shared_ptr<FParam> Shared2 = Shared;
+            }
+            {
+                std::array<shared_ptr<FParam>, 10> Vector;
+                for (size_t i = 0; i < 10; ++i)
+                {
+                    Vector[i] = make_shared<FParam>();
+                }
+            }
+        }
+
+        // shared_ptr + weak_ptr
+        {
+            weak_ptr<FParam> Weak;
+            {
+                shared_ptr<FParam> Shared = make_shared<FParam>();
+                shared_ptr<FParam> Shared2 = Shared;
+                Weak = Shared;
+                TestWeak(Shared);
+                TestWeak(Weak);
+            }
+
+            if (!Weak.expired())
+            {
+                cout << "";
+            }
+            TestWeak(Weak);
+        }
+        // shared_ptr -> .get()으로 Pointer를 뽑아온 다음에
+        // 그 Pointer를 다시 shared_ptr로 바꾸는 방법
+        {
+            shared_ptr<FSharedTest> Shared = make_shared<FSharedTest>(1234);
+
+            {
+                FSharedTest* Test = Shared.get();
+                Test->Hello();
+                Test->A = 123456;
+                Test->Hello();
+                shared_ptr<FSharedTest> SharedTest = Test->shared_from_this();
+                SharedTestFunction(SharedTest);
+                Test->Hello();
+                SharedTestFunction(Test->shared_from_this());
+
+                weak_ptr<FSharedTest> WeakTest = Test->weak_from_this();
+                SharedTest.reset(); // reset을 한다고 하더라도 delete되는 것이 아니다! (해당 인스턴스의) 참조만 까는 것이다.
+                Shared = nullptr; // 모든 참조가 nullptr 또는 reset 되어야 memory가 해제된다.
+                // 따라서 내가 원하는 시점에 delete하기는 번거롭다
+                if (WeakTest.expired())
+                {
+                    std::cout << "expired!!\n";
+                }
+            }
+        }
     }
 #pragma endregion
 }
@@ -1525,3 +1680,4 @@ void Function2()
 //   4. [오류 목록] 창을 사용하여 오류를 봅니다.
 //   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
 //   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
+

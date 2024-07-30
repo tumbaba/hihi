@@ -80,30 +80,129 @@ FParam CallByValue(FParam InParam)
 	return InParam;
 }
 
-void CallByPointer(int* InPointer)
+void CallByPointer(int* OutPointer)
 {
-	*InPointer = 1234;
+	*OutPointer = 1234;
 }
 
-void CallByReference(int& InReference)
+void CallByReference(int& OutReference)
 {
-	InReference = 1234;
+	OutReference = 1234;
 }
 
-void CallByPointer(FParam* InPointer)
+void CallByPointer(FParam* OutPointer)
 {
-	InPointer->Value[0] = 9999;
-	InPointer->Value[5] = 5555;
+	OutPointer->Value[0] = 9999;
+	OutPointer->Value[5] = 5555;
 
-	(*InPointer).Value[2] = 2222;
+	(*OutPointer).Value[2] = 2222;
 }
 
-void CallByReference(FParam& InReference)
+void CallByReference(FParam& OutReference)
 {
-	InReference.Value[0] = 9999;
-	InReference.Value[5] = 5555;
+	OutReference.Value[0] = 9999;
+	OutReference.Value[5] = 5555;
 
-	InReference.Value[2] = 2222;
+	OutReference.Value[2] = 2222;
+}
+
+void TestUnique(std::unique_ptr<int>& OutUnique)
+{
+	*OutUnique += 100;
+}
+
+void TestUnique(std::unique_ptr<int>* OutUnique)
+{
+	*(*OutUnique) += 100;
+}
+
+void TestShared(std::shared_ptr<int> OutShared)
+{
+	int* Pointer = OutShared.get();
+	*OutShared += 100;
+}
+
+void TestWeak(std::weak_ptr<FParam> OutWeak)
+{
+	if (OutWeak.expired())
+	{
+		//_ASSERT(false);
+		return;
+	}
+
+	std::shared_ptr<FParam> Shared = OutWeak.lock();
+	FParam* Sharedd = Shared.get();
+	long Count = Shared.use_count();
+	Sharedd->A;
+	Shared->A;
+	OutWeak.lock()->A += 1234;
+}
+
+#include <cassert>
+void FunctionWithPointer(int* OutPointer)
+{
+	// debug 모드일 때 동작하는 assert는
+	// 프로그래머의 명백한 실수를 탐지하기 위해서 사용
+
+	//if (OutPointer == nullptr) // 만약 nullptr이라면
+	if (!OutPointer) // 0 -> !0 -> 1
+	{
+		// 실습 실행할때 asset가 동작해서 주석 처리
+		//_ASSERT(false);
+		return;
+	}
+
+	*OutPointer += 100;
+}
+
+void FunctionWithReference(int& OutPointer)
+{
+	OutPointer += 100;
+}
+
+void Swap(int& InOutFirst, int& InOutSecond)
+{
+	// Temp = InOutFirst(20)
+	const int Temp = InOutFirst;
+
+	// InOutFirst = 10(b);
+	InOutFirst = InOutSecond;
+
+	// InOutSecond = 20(Temp; a)
+	InOutSecond = Temp;
+}
+
+void SeperateOddsAndEvens(const std::array<int, 10>* const InNumbers,
+	std::vector<int>* const OutOdds, std::vector<int>* const OutEvens)
+{
+	for (int Value : *InNumbers)
+	{
+		std::cout << Value << std::endl;
+
+		// 홀수 판정
+		// 1 / 2: 몫:0 나머지:1 => 홀수
+		// 2 / 2: 몫:0 나머지:0 => 짝수
+		// 3 / 2: 몫:1 나머지:1 => 홀수
+		// 4 / 2: 몫:2 나머지:0 => 짝수
+		if (Value % 2 == 1) // 홀수(나머지가 1)
+		{
+			OutOdds->push_back(Value);
+		}
+		else if (Value % 2 == 0) // 짝수(나머지가 0)
+		{
+			OutEvens->push_back(Value);
+		}
+		else
+		{
+			// 혹시 여기 들어오면 한번 쯤 봐야겠다...
+			_ASSERT(false);
+		}
+	}
+}
+
+void SharedTestFunction(std::shared_ptr<FSharedTest> InShared)
+{
+	InShared->A = 0;
 }
 
 FParam::FParam()
