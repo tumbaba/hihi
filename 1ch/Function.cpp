@@ -8,7 +8,7 @@ void FunctionName(int a, int b)
 
 int AddFunction(const int InA, const int InB)
 {
-	const int Result = InA + InB;
+	const int Result = InA + InB; 
 	return Result;
 }
 
