@@ -21,7 +21,7 @@ int main()
 
     // Stack memory
     {
-        // Stack                                // Heap
+        // Stack                               // Heap
         // [4Byte]i1{1}
         // [4Byte]i2{2}
         // [4Byte]i3{3}
